@@ -3,7 +3,7 @@ import pandas as pd
 # Read training data file
 def read_training_data():
 
-    return pd.read_csv("DBPEDIA_train.csv")
+    return pd.read_csv("under_sampled_train_data.csv")
 
 
 # Read test data file

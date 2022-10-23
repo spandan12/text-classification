@@ -20,10 +20,13 @@ def under_sample(df):
     return df_new
 
 
-def encode_label(df_train, df_test, source_label, new_label_name):
+def encode_label(df_train, df_test, df_val, source_label, new_label_name):
     LE = LabelEncoder()
     
-    df_train[new_label_name] = LE.fit_transform(df_test[source_label])
+    df_train[new_label_name] = LE.fit_transform(df_train[source_label])
+    # breakpoint()
     df_test[new_label_name] = LE.transform(df_test[source_label])
     
-    return df_train, df_test
+    df_val[new_label_name] = LE.transform(df_val[source_label])
+    
+    return df_train, df_test, df_val
